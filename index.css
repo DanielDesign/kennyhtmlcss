@@ -6,11 +6,6 @@
   --kenny-color: #F5D6AF;
 }
 
-/* rotations*/
-:root{
-  --head-rotate: 8deg;
-}
-
 *,:after,:before{
   margin: 0;
   padding: 0;
@@ -44,10 +39,10 @@ body{
   z-index: 0;
   animation-name: hood-rotate;
   animation-duration: 0.7s;
-  /* animation-delay: 2s; */
+  animation-delay: 2s;
   animation-iteration-count: infinite;
-  animation-fill-mode: both; 
-  animation-timing-function: cubic-bezier(1,0,0,1);
+  animation-fill-mode: forwards; 
+  animation-timing-function: cubic-bezier(1,0.8,0.9,1);
   animation-direction: alternate;
   z-index: 8;
 }
@@ -56,29 +51,43 @@ body{
 
   0%{
     transform: rotate(-20deg);
-    /* right: 55px;
-    top:8px; */
+    right: 55px;
+    top:25px;
   }
 
-   /* 25%{
+   15%{
+    transform: rotate(-18deg);
     right: 58px;
-    top: 15px;
-  } */
+    top: 30px;
+  }
 
-  50%{
+  30%{
+    transform: rotate(-20deg);
+    right: 60px;
+    top: 25px;
+  }
+
+  45%{
     right: 60px;
     top: 20px;
   }
 
-  /* 75%{
-    right: 63px;
-    top: 15px;
-  }  */
+  60%{
+    transform: rotate(20deg);
+    right: 65px;
+    top: 25px;
+  } 
+
+  75%{
+    transform: rotate(18deg);
+    right: 65px;
+    top: 30px;
+  }
 
   100% { 
     transform: rotate(20deg); 
-    /* right: 63px;
-    top: 8px;  */
+    right: 69px;
+    top: 35px; 
   }
 }
 
@@ -99,34 +108,84 @@ body{
   left: 5%;
   right: 5%;
   bottom: 12%;
-  border-radius: 70px 70px 60px 60px;
-  background-color: var(--gloves-color);
+  border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%  ;
+  background-color: var(--kenny-color);
   z-index: 5;
 }
 
 .face::after{
   content: '';
   position: absolute;
-  top: 20px;
-  width: 110px;
-  height: 110px;
-  left: 29px;
-  border-radius: 0 50% 0 50%;
-  background-color: var(--kenny-color);
-  transform: rotate(45deg);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%  ;
+  border-right: 30px solid var(--gloves-color);
   z-index: 7;
+}
+
+.face::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%  ;
+  border-left: 30px solid var(--gloves-color);
+  z-index: 7;
+}
+
+.string{
+  position: absolute;
+  bottom: 18px;
+  left: 121px;
+  width: 10px;
+  height: 45px;
+  border: 2px solid transparent;
+  border-right: 2px solid black;
+  border-radius: 0 0 50% 0;
+  transform: rotate(15deg);
+  z-index: 10;
+}
+
+.string::after{
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: -13px;
+  height: 40px;
+  width: 20px;
+  border: 2px solid transparent;
+  border-right: 2px solid black;
+  border-radius: 0 50% 0 0;
+  transform: rotate(-20deg);
+}
+
+.string::before{
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -39px;
+  height: 30px;
+  width: 20px;
+  border: 2px solid transparent;
+  border-left: 2px solid black;
+  border-radius: 0 0 0 50%;
+  transform: rotate(-23deg);
 }
 
 .eye{
   position: absolute;
-  width: 70px;
-  height: 78px;
-  top: 25px;
-  left: 23px;
+  width: 80px;
+  height: 90px;
+  top: 30px;
+  left: 3px;
   background-color: white;
   border-radius: 50%;
   transform: rotate(46deg);
-  z-index: 8;
+  z-index: -8;
 }
 
 .eye.right{
@@ -137,9 +196,9 @@ body{
 .pupil{
   position: absolute;
   top: 30px;
-  left: 40px;
-  width: 8px;
-  height: 8px;
+  left: 45px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: black;
 }
@@ -157,48 +216,39 @@ body{
   width: 250px;
   transform: rotate(0deg);
   z-index: -1;
-  /* animation: body-rotate; */
-  animation-duration: 0.6s;
+  animation: body-rotate;
+  animation-duration: 0.7s;
   animation-delay: 2s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(1,0,0,1);
   animation-direction: alternate;
 }
 
 @keyframes body-rotate{
 
   0%{
-    transform: rotate(-8deg);
-    /* right: 55px;
-    top:30px; */
+    transform: rotate(10deg);
+    top:265px;
   }
 
   25%{
-    /* right: 58px;
-    top: 25px; */
+    top: 263px;
   }
 
   50%{
     top: 260px;
-    /* right: 60px;
-    top: 20px; */
   }
 
   75%{
-    /* right: 63px;
-    top: 25px; */
     top: 263px;
   }
 
   100% { 
-    transform: rotate(8deg); 
+    transform: rotate(-10deg); 
     top: 265px;
-    /* right: 65px;
-    top: 30px;  */
   }
 }
-
 
 .arm{
   position: absolute;
@@ -212,10 +262,11 @@ body{
 }
 
 .arm.right{
-  left: 200px;
-  height: 70px;
-  transform: rotate(-22deg);
-  border-radius: 0 0 10px 0;
+  top: -30px;
+  left: 195px;
+  height: 80px;
+  transform: rotate(-35deg);
+  border-radius: 0 0 20px 0;
 }
 
 .coat{
@@ -225,7 +276,6 @@ body{
   width: 195px;
   height: 90px;
   background-color: var(--body-color);
-  /* z-index: 15; */
 }
 
 .coat::after{
@@ -255,33 +305,113 @@ body{
   position: absolute;
   top: 263px;
   left: 120px;
-  width: 40px;
-  height: 45px;
+  width: 45px;
+  height: 50px;
   background-color: var(--gloves-color);
-  transform: rotate(-28deg);
-  border-radius: 250px 250px 100px 100px;
+  border-radius: 100% 72% 100% 76% / 100% 74% 89% 53% ;
   z-index: 25;
+  animation: glove-rotate;
+  animation-duration: 0.7s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(1,0.820,0.2,1);
+  animation-direction: alternate;
 }
 
 .glove::after{
   content: '';
   position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 20px;
+  right: 5px;
+  bottom: -15px;
+  width: 14px;
   height: 40px;
   background-color: inherit;
-  border-radius: 100px 100px;
-  transform: rotate(90deg);
+  border-radius: 50% 50%;
+  transform: rotate(80deg);
 }
 
 .glove.right{
   left: 280px;
-  transform: rotate(28deg);
+  transform: rotate(-28deg);
+  animation: glove-rotate-right;
+  animation-duration: 0.7s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(1,0.2,0.2,1);
+  animation-direction: alternate;
 }
 
 .glove.right::after{
-  left: -10px;
+  bottom: -4px;
+  left: -6px;
+  transform: rotate(-40deg);
+}
+
+@keyframes glove-rotate{
+
+  0%{
+    transform: rotate(-60deg);
+    left: 120px;
+    top: 263px;
+  }
+
+  30%{
+    transform: rotate(-48deg);
+    left: 124px;
+    top: 270px;
+  }
+
+  50%{
+    transform: rotate(-60deg);
+    left: 120px;
+    top: 265px;
+  } 
+
+  70%{
+    transform: rotate(-38deg);
+    left:75px;
+    top: 280px;
+  }
+
+  100% { 
+    transform: rotate(-60deg); 
+    left: 70px;
+    top: 285px; 
+  }
+}
+
+@keyframes glove-rotate-right{
+
+  0%{
+    transform: rotate(-10deg);
+    left: 289px;
+    top:273px;
+  }
+
+  30%{
+    transform: rotate(-20deg);
+    left: 287px;
+    top: 275px;
+  }
+
+  50%{
+    left: 280px;
+    top: 270px;
+  }
+
+  70%{
+    transform: rotate(-10deg);
+    left:235px;
+    top: 265px;
+  }
+
+  100% { 
+    transform: rotate(-20deg); 
+    left: 239px;
+    top: 263px; 
+  }
 }
 
 .pants{
@@ -302,14 +432,28 @@ body{
   height: 10px;
   border-radius: 100px 100px;
   background-color: black;
-  /* animation: body-rotate; */
-  animation-duration: 0.8s;
+  animation: shoes-rotate;
+  animation-duration: 0.7s;
   animation-delay: 2s;
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(1,0.1,0.2,1);
   animation-direction: alternate;
 }
+
+@keyframes shoes-rotate{
+
+  from{
+    transform: rotate(3deg);
+  }
+
+  to { 
+    transform: rotate(-3deg); 
+  }
+}
+
+
+
 
 
 
